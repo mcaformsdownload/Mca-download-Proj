@@ -83,5 +83,5 @@ def check_order_status():
         db.close()
 
 def start_scheduler():
-    scheduler.add_job(check_order_status, "interval", minutes=5)
+    scheduler.add_job(check_order_status, "interval", hours=3)
     scheduler.start()
