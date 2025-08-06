@@ -13,9 +13,13 @@ app.include_router(auth_router)
 app.include_router(company_router)
 app.include_router(order_router)
 
+origins = [
+    "https://downloadmcafiles.com",           # local frontend
+    "https://company-docs-frontend.netlify.app",        # any other allowed domain
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://downloadmcafiles.com","https://company-docs-frontend.netlify.app"],  # Or replace * with ["http://localhost:4200"]
+    allow_origins=origins,  # Or replace * with ["http://localhost:4200"]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
